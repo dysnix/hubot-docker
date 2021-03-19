@@ -8,7 +8,8 @@ ARG HUBOT_DESCRIPTION="Hubot robot. Born to serve."
 
 ENV HUBOT_HOME /home/hubot
 
-RUN npm install -g coffeescript yo generator-hubot@next
+RUN apk --no-cache add git && \ 
+    npm install -g coffeescript yo generator-hubot@next
 
 RUN addgroup -g 501 hubot && \
     adduser -D -h $HUBOT_HOME -u 501 -G hubot hubot
